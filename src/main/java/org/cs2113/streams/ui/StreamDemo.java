@@ -3,6 +3,7 @@ package org.cs2113.streams.ui;
 import java.util.ArrayList;
 
 import org.cs2113.streams.logic.StreamsFromCollections;
+import org.cs2113.streams.model.Student;
 
 /**
  * Entry point for demonstrations of streams created from Java collections.
@@ -16,12 +17,13 @@ public class StreamDemo {
      */
     public static void main(String[] args) {
         StreamsFromCollections streams = new StreamsFromCollections();
-        ArrayList<Integer> numbers = streams.createNumbers();
+        ArrayList<Student> students = streams.createStudents();
 
-        System.out.println("Squared prime numbers: " + streams.findSquaredPrimes(numbers));
         System.out.println("Passing students from ArrayList: "
-                + streams.findPassingStudentsFromList());
+                + streams.findPassingStudentsFromList(students));
         System.out.println("Passing students from HashMap: "
-                + streams.findPassingStudentsFromMap());
+                + streams.findPassingStudentsFromMap(students));
+        System.out.println("Retest results for failing students with prime student numbers: "
+                + streams.applyRetestToFailingPrimeNumberedStudents(students));
     }
 }
